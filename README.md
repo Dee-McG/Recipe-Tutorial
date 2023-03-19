@@ -17,3 +17,4 @@ This tutorial creates a recipe sharing and meal planner application. It is aimed
 * https://cdnjs.com/libraries/bootstrap - CDN for bootstrap links
 * https://getbootstrap.com/docs/5.2/getting-started/introduction - Bootstrap documentation
 * https://uxwing.com/ - UX Wing icons
+* Django-Allauth - https://django-allauth.readthedocs.io/en/latest/installation.html

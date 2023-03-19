@@ -40,10 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     # Apps
     'home',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,10 +77,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                 'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
@@ -107,7 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -119,6 +135,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# Account Setup
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFCATION = 'none'
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
