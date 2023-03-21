@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Add Recipe{% endblock %} 
+
+{% block content %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="p-2 form">
+        <h1 class="text-center">Add Recipe</h1>
+        {% csrf_token %}
+        {{ form.media }} 
+        {{ form|crispy }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-2">Create Recipe</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
