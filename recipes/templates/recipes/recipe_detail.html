@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe Detail - {{recipe.title}}{% endblock %}
+
+{% block content %} 
+    <div class="container">
+        <div class="recipe-info mt-3 p-1">
+            <div class="recipe-img">
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.image_alt }}" class="recipe-pic">
+            </div>
+            <div class="recipe-detail">
+                <h1 class="text-center">{{ recipe.title }}</h1>
+                <p class="text-center">Posted by {{recipe.user}} on {{recipe.posted_date}}</p>
+                <hr>
+                <p class="p-3"><strong>Calories: </strong> {{ recipe.calories }}</p>
+                <p class="p-3"><strong>Cuisine: </strong> {{ recipe.cuisine_types|title }}</p>
+
+                {% if request.user == recipe.user %} 
+                <div class="text-center">
+                    <a href="" class="btn btn-primary w-25">Edit</a>
+                    <a href="" class="btn btn-primary w-25">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="recipe-container">
+            <div class="ingredients p-3">
+                <h2>Ingredients</h2>
+                <p>{{ recipe.ingredients|safe }}</p>
+            </div>
+            <div class="instructions p-3">
+                <h2>Instructions</h2>
+                <p>{{ recipe.instructions|safe }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -8,7 +8,7 @@
 </h1>
 <div class="container d-flex flex-row flex-wrap justify-content-center">
     {% for recipe in recipes %} 
-    <a href="" class="recipes" aria-label="Click to view {{recipe.title}}">
+    <a href="{% url 'recipe_detail' recipe.id %}" class="recipes" aria-label="Click to view {{recipe.title}}">
         <div class="card m-3" style="width: 18rem;">
             <img src="{{recipe.image.url}}" class="card-img-top" alt="{{recipe.image_alt}}">
             <div class="card-body">
