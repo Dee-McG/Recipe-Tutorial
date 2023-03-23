@@ -18,7 +18,7 @@
                 {% if request.user == recipe.user %} 
                 <div class="text-center">
                     <a href="" class="btn btn-primary w-25">Edit</a>
-                    <a href="" class="btn btn-primary w-25">Delete</a>
+                    <a href="{% url 'delete_recipe' recipe.id %}" class="btn btn-primary w-25">Delete</a>
                 </div>
                 {% endif %}
             </div>
