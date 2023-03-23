@@ -1,1 +1,34 @@
 {% extends 'base.html' %}
+
+{% block title %}Home{% endblock %} 
+
+
+{% block content %} 
+
+<div class="container flex-column pt-3">
+    <section class="text-center">
+        <h1 class="main-title mx-auto">Discover the Ultimate Recipe and Meal Planning Destination</h1>
+
+        <p class="pt-4">
+            Welcome to our one-stop recipe and meal planning hub! We believe that meal time should be a stress-free 
+            and enjoyable experience for everyone. That's why we've created a platform that not only houses a 
+            collection of delicious and diverse recipes, but also provides a convenient meal planning tool. With 
+            our system, you can plan your meals for the week with just a few clicks. 
+            And for those nights when you're feeling spontaneous, try out our meal generator that lets you select 
+            your preferred cuisine, calorie count, and meal type to whip up something new and exciting. Join us 
+            today and take the guesswork out of meal planning!
+        </p>
+    </section>
+    <section>
+        <div class="recipe-cont">
+            {% for recipe in recipes %} 
+                <a href="{% url 'recipe_detail' recipe.id %}" class="img-container">
+                    <img src="{{recipe.image.url}}" alt="{{recipe.image_alt}}" style="width: 100%">
+                    <div class="centered"><h2>{{recipe.title}}</h2></div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}
