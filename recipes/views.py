@@ -8,9 +8,9 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin, LoginRequiredMixin
 )
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.db.models import Q
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Recipe
 from .forms import RecipeForm
@@ -30,7 +30,6 @@ class Recipes(ListView):
                 Q(title__icontains=query) |
                 Q(description__icontains=query) |
                 Q(instructions__icontains=query) |
-                Q(ingredients__icontains=query) |
                 Q(cuisine_types__icontains=query)
             )
         else:
