@@ -22,3 +22,4 @@ This tutorial creates a recipe sharing and meal planner application. It is aimed
 * https://docs.djangoproject.com/en/4.1/topics/class-based-views/mixins/ - Django Mixins
 * https://cloudinary.com/ - Cloudinary
 * https://django-ckeditor.readthedocs.io/en/latest/ - CKEditor
+* https://books.agiliq.com/projects/django-orm-cookbook/en/latest/query_relatedtool.html - Q Objects
