@@ -23,3 +23,4 @@ This tutorial creates a recipe sharing and meal planner application. It is aimed
 * https://cloudinary.com/ - Cloudinary
 * https://django-ckeditor.readthedocs.io/en/latest/ - CKEditor
 * https://books.agiliq.com/projects/django-orm-cookbook/en/latest/query_relatedtool.html - Q Objects
+* https://www.w3schools.com/howto/howto_css_modals.asp - CSS Modal
