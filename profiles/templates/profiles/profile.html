@@ -22,7 +22,12 @@
             {% endif %}
 
             {% if request.user == profile.user %}
-            <button id="myBtn" class="btn btn-primary w-25 mb-4">Edit</button>
+            <div>
+                <button id="myBtn" class="btn btn-primary w-25 mb-4">Edit</button>
+            </div>
+            <div>
+                <a href="{% url 'meal_planner' %}" class="btn btn-primary w-25 mb-4">Meals</a>
+            </div>
             {% endif %}
         </div>
         <div class="profile-recipes">
