@@ -1,8 +1,91 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %}
 
-{% block title %}Neal Planner{% endblock %} 
+{% block title %}Meal Planner{% endblock %}
 
 
-{% block content %} 
-Test
+{% block content %}
+<div class="container">
+    <h1 class="text-center p-4">Monthly Meal Planner</h1>
+    <div class="accordion" id="accordionExample">
+        {% for day in days %}
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading{{forloop.counter}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse{{forloop.counter}}" aria-expanded="true"
+                    aria-controls="collapse{{forloop.counter}}">
+                    {{day}}
+                </button>
+            </div>
+            <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="heading{{forloop.counter}}"
+                data-bs-parent="#accordionExample">
+
+                <div class="d-flex flex-column align-items-center p-2">
+                    <p>Add or Update Meals</p>
+                    <a href="" class="btn btn-primary w-25 mb-2">Breakfast</a>
+                    <a href="" class="btn btn-primary w-25 mb-2">Lunch</a>
+                    <a href="" class="btn btn-primary w-25 mb-2">Dinner</a>
+                </div>
+
+                <hr>
+
+                <div class="accordion-body">
+                    {% for meal in meals %} 
+
+                    {% if meal.meal_date == day %} 
+
+                    {% if meal.recipe.meal_type == 'breakfast' %}
+                    <h2 class="text-center">Breakfast</h2>
+                    <div class="meals">
+                        <div class="thumb">
+                            <img src="{{meal.recipe.image.url}}" alt="{{meal.recipe.image_alt}}">
+                        </div>
+                        <div class="meal-info">
+                            <h3 class="text-center">
+                                <a href="{% url 'recipe_detail' meal.recipe.id %}">{{meal.recipe.title}}</a>
+                            </h3>
+                            <p>{{meal.recipe.description}}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if meal.recipe.meal_type == 'lunch' %}
+                    <h2 class="text-center">Lunch</h2>
+                    <div class="meals">
+                        <div class="thumb">
+                            <img src="{{meal.recipe.image.url}}" alt="{{meal.recipe.image_alt}}">
+                        </div>
+                        <div class="meal-info">
+                            <h3 class="text-center">
+                                <a href="{% url 'recipe_detail' meal.recipe.id %}">{{meal.recipe.title}}</a>
+                            </h3>
+                            <p>{{meal.recipe.description}}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if meal.recipe.meal_type == 'dinner' %}
+                    <h2 class="text-center">Dinner</h2>
+                    <div class="meals">
+                        <div class="thumb">
+                            <img src="{{meal.recipe.image.url}}" alt="{{meal.recipe.image_alt}}">
+                        </div>
+                        <div class="meal-info">
+                            <h3 class="text-center">
+                                <a href="{% url 'recipe_detail' meal.recipe.id %}">{{meal.recipe.title}}</a>
+                            </h3>
+                            <p>{{meal.recipe.description}}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

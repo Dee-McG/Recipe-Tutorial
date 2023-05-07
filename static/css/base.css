@@ -185,6 +185,36 @@ a.img-container:hover {
     width: 100%;
 }
 
+/* Meal Planner */
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-button {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.meals {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 > a {
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.thumb img {
+    width: 100%;
+}
+
 @media screen and (min-width:40em){
     .form {
         width: 50%;
