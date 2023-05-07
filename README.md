@@ -19,6 +19,7 @@ This tutorial creates a recipe sharing and meal planner application. It is aimed
 * https://uxwing.com/ - UX Wing icons
 * https://django-allauth.readthedocs.io/en/latest/installation.html - Django-Allauth
 * https://django-crispy-forms.readthedocs.io/en/latest/install.html - Crispy Forms
+* https://pypi.org/project/django-reorder/ - Django Reordered
 * https://docs.djangoproject.com/en/4.1/topics/class-based-views/mixins/ - Django Mixins
 * https://cloudinary.com/ - Cloudinary
 * https://django-ckeditor.readthedocs.io/en/latest/ - CKEditor
