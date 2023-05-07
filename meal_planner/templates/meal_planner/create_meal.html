@@ -26,7 +26,7 @@
                 <h2 class="text-center">{{recipe.title}}</h2>
                 <p class="card-text p-2">{{recipe.description}}</p>
 
-                <form action="" method="POST">
+                <form action="{% url 'add_meal' meal_date meal_type recipe.pk %}" method="POST">
                     {% csrf_token %} 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary m-3">Add Meal</button>
