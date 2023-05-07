@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{% block title %}Create Meal Plan{% endblock %}
+
+{% block content %} 
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="pt-2">Choose a {{ meal_type|title }}</h1>
+        <p>{{ meal_date }}</p>
+    </div>
+
+    <form method="GET" class="form d-flex flex-column p-4">
+        {% csrf_token %} 
+        <label for="calories">Calories</label>
+        <input type="number" class="form-control mb-2" name="calories" value="{{ request.GET.calories}}" placeholder="Max calories">
+        <label for="search">Keyword</label>
+        <input type="text" class="form-control mb-2" name="search" value="{{ request.GET.search}}" placeholder="Asian, Pie, Chicken...">
+        <button type="submit" class="btn btn-primary mt-3">Find Random Recipe</button>
+    </form>
+
+    {% if recipe %} 
+        <div class="form">
+            <a href="{% url 'recipe_detail' recipe.id %}" class="recipes">
+                <img src="{{ recipe.image.url }}" class="card-img-top">
+                <h2 class="text-center">{{recipe.title}}</h2>
+                <p class="card-text p-2">{{recipe.description}}</p>
+
+                <form action="" method="POST">
+                    {% csrf_token %} 
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary m-3">Add Meal</button>
+                    </div>
+                </form>
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
